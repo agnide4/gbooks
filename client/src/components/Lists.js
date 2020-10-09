@@ -50,6 +50,7 @@ export default function Lists() {
                                 <p>Authors: {book.authors}</p>
                                 <textarea name="Description" defaultValue={book.description} />
                                 <a href={book.infoLink} target="_blank">Info Link</a>
+                                <img className="bimg" src={book.imageLinks.smallThumbnail}></img>
                                 <button>SAVE TO FAVOURITES</button>
                             </div>
 
