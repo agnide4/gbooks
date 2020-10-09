@@ -1,0 +1,4 @@
+//Getting seacrh term
+export const GET_SVALUE_REQUEST = "GET_SVALUE_REQUEST";
+export const GET_SVALUE_SUCCESS = "GET_SVALUE_SUCCESS";
+export const GET_SVALUE_FAILURE = "GET_SVALUE_FAILURE";
