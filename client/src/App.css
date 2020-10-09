@@ -47,3 +47,11 @@
   flex-direction: row;
   
 }
+.card{
+  background-color: aqua;
+}
+
+
+.card:nth-child(2n+1) {
+  background: lightgreen;
+}

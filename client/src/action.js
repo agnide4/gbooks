@@ -43,10 +43,16 @@ export const getBooks = (searchTerm) => {
           .get("https://www.googleapis.com/books/v1/volumes?q=" + searchTerm + "&key=AIzaSyDY0aJO52_xe73TsJfWuTY_YvAFKEgMjUc")
 
           .then((response) => {
-              console.log(response.data.items)
+              let info = [];
+              response.data.items.map((item) => {
+                info.push(item.volumeInfo)
+            })
+               console.log(info)
+               dispatch(getBooksSuccess(info))
           })
           .catch((error) =>{
               console.log(error)
+              dispatch(getBooksfailure(error))
           })
     }
 }
