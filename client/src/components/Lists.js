@@ -31,6 +31,11 @@ export default function Lists() {
         }
     }, [searchTerm])
 
+    const save = (e) => (title, authors, description, infoLink, image) => {
+        console.log(title, authors, description, infoLink, image)
+        console.log(e.target)
+    }
+
     
 
     return (
@@ -51,7 +56,7 @@ export default function Lists() {
                                 <textarea name="Description" defaultValue={book.description} />
                                 <a href={book.infoLink} target="_blank">Info Link</a>
                                 <img className="bimg" src={book.imageLinks.smallThumbnail}></img>
-                                <button>SAVE TO FAVOURITES</button>
+                                <button onClick={save(e)}>SAVE TO FAVOURITES</button>
                             </div>
 
 
