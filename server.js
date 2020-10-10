@@ -3,17 +3,22 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 const db = require("./models");
-const routes = require("./routes")
+// const routes = require("./routes")
+const apiRouter = require("./routes/apiRoutes");
 
 const PORT = process.env.PORT || 8000;
 
 const app = express();
 
-app.use(logger("dev"));
+// app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
+
+// console.log(routes)
 
 app.use(express.json());
 // app.use(express.static("public"));
+
+app.use("/api", apiRouter)
 
 //For production environemnt
 if (process.env.NODE_ENV === "production") {
@@ -39,7 +44,14 @@ require("./db/seed.js");
 // require("./routes/apiRoutes")(app);
 // require("./routes/htmlRoutes.js")(app);
 //Define API routes
-app.use(routes)
+
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);

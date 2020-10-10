@@ -71,7 +71,7 @@ const getSbooksFailure = (error) =>({
 export const getSavedBooks = () => {
     return (dispatch, getState) => {
         axios
-            .get("/api/books")
+            .get("/books")
             .then((response) => {
                 console.log(response)
 
