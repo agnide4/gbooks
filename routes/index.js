@@ -1,6 +1,17 @@
+const path = require("path")
 const router = require("express").Router();
-const bookRoutes = require("./books")
+const apiRoutes = require("./apiRoutes")
 
-router.use("books", bookRoutes)
+
+
+//Use this API routes
+router.use("api", apiRoutes);
+
+
+
+//Reroute to clients
+router.use(function(req, res){
+    res.sendFile(path.join(__dirname, "../client/build/index.html"))
+})
 
 module.exports = router;
