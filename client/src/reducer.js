@@ -1,6 +1,7 @@
+
 import {GET_SVALUE_REQUEST, GET_SVALUE_SUCCESS, GET_SVALUE_FAILURE} from "./constants"
 import {GET_BOOKS_REQUEST, GET_BOOKS_SUCCESS, GET_BOOKS_FAILURE} from "./constants"
-
+import { GET_SBOOKS_REQUEST, GET_SBOOKS_SUCCESS, GET_SBOOKS_FAILURE } from "./constants"
 
 export const initialState = {
     books: [],
@@ -18,12 +19,20 @@ export default (state = initialState, action) =>{
             return {...state, searchTerm: action.payload, error: null}
         case GET_SVALUE_FAILURE:
             return {...state, error: action.payload} 
+
         case GET_BOOKS_REQUEST:
             return {...state, books: [], error: null}
         case GET_BOOKS_SUCCESS:
             return {...state, books: action.payload, error: null}
         case GET_BOOKS_FAILURE:
-            return {...state, error: action.payload}    
+            return {...state, error: action.payload}   
+            
+        case GET_SBOOKS_REQUEST:
+            return {...state, savedBooks: [], error: null}
+        case GET_SBOOKS_SUCCESS:
+            return {...state, savedBooks: action.payload, error: null}
+        case GET_SBOOKS_FAILURE:
+            return {...state, error: action.payload}
 
         default:
             return state

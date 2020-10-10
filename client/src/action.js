@@ -2,6 +2,7 @@ import axios from "axios"
 
 import {GET_SVALUE_REQUEST, GET_SVALUE_SUCCESS, GET_SVALUE_FAILURE} from "./constants"
 import {GET_BOOKS_REQUEST, GET_BOOKS_SUCCESS, GET_BOOKS_FAILURE} from "./constants"
+import {GET_SBOOKS_REQUEST, GET_SBOOKS_SUCCESS, GET_SBOOKS_FAILURE } from "./constants"
 
 
 const getSvalueSuccess = (searchTerm) => ({
@@ -57,3 +58,26 @@ export const getBooks = (searchTerm) => {
     }
 }
 
+const getSbooksSuccess = (savedBooks) => ({
+    type: GET_BOOKS_SUCCESS,
+    payload: savedBooks
+})
+
+const getSbooksFailure = (error) =>({
+    type: GET_SBOOKS_FAILURE,
+    payload: error
+})
+
+export const getSavedBooks = () => {
+    return (dispatch, getState) => {
+        axios
+            .get("/api/books")
+            .then((response) => {
+                console.log(response)
+
+            })
+            .catch((error) => {
+
+            })
+    }
+}

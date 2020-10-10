@@ -5,7 +5,7 @@ const path = require("path");
 const db = require("./models");
 const routes = require("./routes")
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 //For production environemnt
 if (process.env.NODE_ENV === "production") {
@@ -30,6 +30,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gbooks",
 }
 
 );
+
+// Seeding DB for development.
+require("./db/seed.js");
+
 
 
 // require("./routes/apiRoutes")(app);
