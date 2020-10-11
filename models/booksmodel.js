@@ -7,21 +7,23 @@ const booksModel = new Schema(
         title: {
           type: String,
           trim: true,
-          required: true
+          
           
         },
-        description: String,
+        description: {
+          type: String
+        },
         authors: [{
           type: String,
           trim: true,
-          required: true
+          
         }],
 
-        thumbnail: {
+        image: {
           type: String,
           trim: true
         },
-        infoLink: {
+        link: {
           type: String,
           trim: true
         }

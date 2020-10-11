@@ -6,14 +6,15 @@ const db = require("./models");
 // const routes = require("./routes")
 const apiRouter = require("./routes/apiRoutes");
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
 // app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 
-// console.log(routes)
+
+console.log(apiRouter.stack[0].route)
 
 app.use(express.json());
 // app.use(express.static("public"));
@@ -37,7 +38,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gbooks",
 );
 
 // Seeding DB for development.
-require("./db/seed.js");
+// require("./db/seed.js");
 
 
 

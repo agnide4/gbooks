@@ -1,11 +1,14 @@
-const router = require("express").Router();
+const express = require("express")
+const router = express.Router();
 const controller = require("../controllers/controller");
-const db = require("../models")
+const db = require("../models/index")
 
 // Uses generic api route "/api/books"
 router.route("/books")
   .get(controller.findAll)
-  .post(controller.save);
+
+  router.route("/books/")
+     .post(controller.save);
 
 
 
