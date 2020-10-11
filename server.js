@@ -5,6 +5,7 @@ const path = require("path");
 const db = require("./models");
 // const routes = require("./routes")
 const apiRouter = require("./routes/apiRoutes");
+require("./database")
 
 const PORT = process.env.PORT || 3001;
 
