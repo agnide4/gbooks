@@ -46,7 +46,7 @@ export default (state = initialState, action) =>{
         case DELETE_BOOK_REQUEST:
             return {...state, savedBooks: [], error: null}
         case DELETE_BOOK_SUCCESS:
-            return {...state, savedBooks: action.payload, error: null}
+            return {...state, error: null}
         case DELETE_BOOK_FAILURE:
             return {...state, error: action.payload}
 

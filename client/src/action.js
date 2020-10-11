@@ -3,6 +3,8 @@ import axios from "axios"
 import {GET_SVALUE_REQUEST, GET_SVALUE_SUCCESS, GET_SVALUE_FAILURE, SAVE_BOOK_SUCCESS, SAVE_BOOK_FAILURE, SAVE_BOOK_REQUEST} from "./constants"
 import {GET_BOOKS_REQUEST, GET_BOOKS_SUCCESS, GET_BOOKS_FAILURE} from "./constants"
 import {GET_SBOOKS_REQUEST, GET_SBOOKS_SUCCESS, GET_SBOOKS_FAILURE } from "./constants"
+import { DELETE_BOOK_REQUEST, DELETE_BOOK_SUCCESS, DELETE_BOOK_FAILURE } from "./constants"
+
 
 
 const getSvalueSuccess = (searchTerm) => ({
@@ -117,6 +119,31 @@ export const saveMyBook = (book) =>{
             })
             .catch((error) => {
                 dispatch(saveBookFailure(error.message))
+            })
+    }
+}
+
+const deleteBookSuccess = () => ({
+    type: DELETE_BOOK_SUCCESS
+})
+
+const deleteBookFailure = (error) => ({
+    type: DELETE_BOOK_FAILURE,
+    payload: error
+})
+
+export const deleteBook = (id) =>{
+    return(dispatch, getState) =>{
+        dispatch({type: DELETE_BOOK_REQUEST})
+        axios
+            .delete("/api/books/" + id)
+            .then((response) => {
+                dispatch(deleteBookSuccess())
+                dispatch(getSavedBooks())
+            })
+            .catch((error) => {
+                console.log(error)
+                dispatch(deleteBookFailure())
             })
     }
 }
