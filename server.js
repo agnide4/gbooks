@@ -5,7 +5,7 @@ const path = require("path");
 const db = require("./models");
 // const routes = require("./routes")
 const apiRouter = require("./routes/apiRoutes");
-require("./database")
+// require("./database")
 
 const PORT = process.env.PORT || 3001;
 
@@ -15,7 +15,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 
-console.log(apiRouter.stack[0].route)
+// console.log(apiRouter.stack[0].route)
 
 app.use(express.json());
 // app.use(express.static("public"));

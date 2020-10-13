@@ -10,5 +10,5 @@ const mongoose = require('mongoose');
 //     .catch(err => console.log(err));
 
 module.exports = {
-    mongoURI = "mongodb+srv://agnide4:gbooks@cluster0.o4x6m.gcp.mongodb.net/books?retryWrites=true&w=majority"
+    mongoURI = "mongodb+srv://agnide4:" +  +"@cluster0.o4x6m.gcp.mongodb.net/books?retryWrites=true&w=majority"
 }
